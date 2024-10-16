@@ -3,8 +3,10 @@ import altair as alt
 import streamlit as st
 
 # Load the data
-df = pd.read_csv("/Users/drakoriz/Documents/RATPDEV_AL-ULA/passenger_RATPdev_alula.csv", sep=';')
+url = 'https://raw.githubusercontent.com/<HWPlo>/<testratpdevalula>/main/RATPDEV_AL-ULA/passenger_RATPdev_alula.csv'
 
+# Charger les données depuis le fichier sur GitHub
+df = pd.read_csv(url, sep=';')
 data = df.copy()
 data['vehicle'] = data['vehicle'].str.extract(r'\((\d+)\)')
 data['date2'] = pd.to_datetime(data['server_ts'], unit='s')
